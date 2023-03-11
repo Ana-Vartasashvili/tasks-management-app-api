@@ -36,3 +36,35 @@ export const createTask = async (req, res, next) => {
     next(error)
   }
 }
+
+export const updateTask = async (req, res, next) => {
+  const taskId = req.params.taskId
+  const tasks = await Task.find()
+
+  try {
+    const { name, completed } = req.body
+    const task = await Task.findById(taskId)
+
+    if (!task) {
+      const error = new Error('Could not find task.')
+      error.statusCode = 404
+      throw error
+    }
+
+    task.name = name
+    task.completed = completed || false
+
+    const updatedTask = await task.save()
+
+    res.status(200).json({
+      message: 'Task updated successfully',
+      task: updatedTask,
+      tasks,
+    })
+  } catch (error) {
+    if (!error.statusCode) {
+      error.statusCode = 500
+    }
+    next(error)
+  }
+}
