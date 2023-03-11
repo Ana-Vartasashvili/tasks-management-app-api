@@ -2,6 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import { config } from 'dotenv'
+import tasksRoutes from './routes/tasks.js'
 
 const app = express()
 
@@ -10,7 +11,7 @@ const DATABASE_URL = process.env.DATABASE_CONNECTION_URL
 
 app.use(bodyParser.json())
 
-// app.use('/tasks', tasksRoutes)
+app.use('/tasks', tasksRoutes)
 // app.use('/auth', authRoutes)
 
 try {
