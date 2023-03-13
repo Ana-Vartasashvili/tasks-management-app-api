@@ -1,4 +1,5 @@
 import Task from '../models/Task.js'
+import User from '../models/User.js'
 
 export const getTasks = async (req, res, next) => {
   try {
@@ -20,9 +21,14 @@ export const createTask = async (req, res, next) => {
     const { name } = req.body
     const task = new Task({
       name,
+      user: req.userId,
     })
 
     const newTask = await task.save()
+
+    const currentUser = await User.findById(req.userId)
+    currentUser.tasks.push(task)
+    await currentUser.save()
 
     res.status(201).json({
       message: 'New task created successfully',
