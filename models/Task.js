@@ -12,7 +12,7 @@ const taskSchema = new Schema({
     default: false,
   },
 
-  createdBy: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: 'User',
     required: true,

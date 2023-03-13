@@ -1,11 +1,11 @@
 import express from 'express'
-import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import { config } from 'dotenv'
 import tasksRoutes from './routes/tasks.js'
 import authRoutes from './routes/auth.js'
 import errorHandler from './middlewares/errorHandler.js'
 import connectToMongo from './config/mongo.js'
+import isAuth from './middlewares/isAuth.js'
 
 const app = express()
 
@@ -14,7 +14,7 @@ connectToMongo()
 
 app.use(bodyParser.json())
 
-app.use('/tasks', tasksRoutes)
+app.use('/tasks', isAuth, tasksRoutes)
 app.use('/auth', authRoutes)
 
 app.use(errorHandler)

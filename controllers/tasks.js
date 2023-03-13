@@ -38,7 +38,7 @@ export const createTask = async (req, res, next) => {
 }
 
 export const updateTask = async (req, res, next) => {
-  const taskId = req.params.taskId
+  const { taskId } = req.params
   const tasks = await Task.find()
 
   try {

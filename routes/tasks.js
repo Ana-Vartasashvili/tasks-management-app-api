@@ -5,13 +5,12 @@ import {
   updateTask,
   deleteTask,
 } from '../controllers/tasks.js'
-import isAuth from '../middlewares/isAuth.js'
 
 const router = Router()
 
-router.get('/', isAuth, getTasks)
-router.post('/', isAuth, createTask)
-router.put('/:taskId', isAuth, updateTask)
-router.delete('/:taskId', isAuth, deleteTask)
+router.get('/', getTasks)
+router.post('/', createTask)
+router.put('/:taskId', updateTask)
+router.delete('/:taskId', deleteTask)
 
 export default router
