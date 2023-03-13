@@ -22,15 +22,21 @@ const signupSchema = [
     .withMessage('Please enter a valid email address.'),
 
   check('password')
+    .exists()
     .trim()
+    .withMessage('Password is required.')
     .isLength({ min: 8 })
     .withMessage('Password must be at least 8 chars long'),
 
-  check('password_confirmation').custom((value) => {
-    if (value !== req.body.password) {
-      throw new Error("Confirmation password doesn't match to new password!")
-    }
-  }),
+  check('password_confirmation')
+    .exists()
+    .trim()
+    .withMessage('Password confirmation is required.')
+    .custom((value, { req }) => {
+      if (value !== req.body.password) {
+        throw new Error("Confirmation password doesn't match new password!")
+      }
+    }),
 ]
 
 export default signupSchema
