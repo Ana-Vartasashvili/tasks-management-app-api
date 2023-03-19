@@ -6,14 +6,14 @@ Using the API you can do CRUD operations on tasks and application users.
 
 ## Prerequisites
 
-- <img style="padding-right:10px;" align="left"  src="readme/assets/Nodejs.png"   height="22"/> <p>_Node JS @12.X and up_</p>
+- <img style="padding-right:10px;" align="left"  src="readme/assets/NodeJs.png"   height="22"/> <p>_Node JS @12.X and up_</p>
 - <img style="padding-right:10px;" align="left"  src="readme/assets/Npm.png"   height="20"/> <p>_npm @6 and up_</p>
 
 #
 
 ## Tech Stack
 
-- <img style="padding-right:10px;" align="left"  src="readme/assets/Nodejs.png"   height="25"/> <p><a href="https://nodejs.org/en/" target="_blank">[NodeJS @16.15.1]</a> - JavaScript runtime built on Chrome's V8 JavaScript engine<p/>
+- <img style="padding-right:10px;" align="left"  src="readme/assets/NodeJs.png"   height="25"/> <p><a href="https://nodejs.org/en/" target="_blank">[NodeJS @16.15.1]</a> - JavaScript runtime built on Chrome's V8 JavaScript engine<p/>
 
 - <img style="padding-right:10px;" align="left"  src="readme/assets/express.png"   height="25"/> <p><a href="https://expressjs.com/" target="_blank">[Express @4.18.1]</a> - Fast, unopinionated, minimalist web framework for Node.js<p/>
 
